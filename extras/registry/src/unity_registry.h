@@ -24,8 +24,10 @@ void registerTestGroup(TestGroupFunction func);
 // API to run all registered test groups
 int runUnityTests(int argc, const char *argv[]);
 
-#define RUN_UNITY_TESTS() \
-    runUnityTests(0, NULL)
+#define RUN_UNITY_TESTS() { \
+    const char *argv = "UnityTestRunner"; \
+    runUnityTests(1, &argv); \
+}
 
 #ifdef __cplusplus
 }
